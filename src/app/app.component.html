@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="col">
+    <div (dragstart)="drag($event)" *ngFor="let node of nodes; index as i" [attr.data-node]="convertObjToJson(node)"
+         class="drag-drawflow"
+         draggable="true">
+      <span> {{node.name}}</span>
+    </div>
+  </div>
+  <div class="col-right">
+    <div #drawFlow (dragover)="allowDrop($event)" (drop)="drop($event)" id="drawflow">
+      <div (click)="saveNodes()" class="bar-zoom btn-save-node">
+        Save nodes
+      </div>
+    </div>
+  </div>
+</div>
+<div #formConfigNodeTemplate [class.d-none]="!showConfigNode" id="formConfigNodeTemplate">
+  <ng-container *ngIf="showConfigNode" [ngSwitch]="typeNodeSelected">
+    <app-template-node-1 (returnDataToWorkSpace)="saveConfigNode($event)"
+                         *ngSwitchCase="TEMPLATE_ORIGIN_NODE_TYPE.ORIGIN_NODE_1"
+                         [propertiesInfo]="propertiesNodeSelected"></app-template-node-1>
+    <app-template-node-2
+      (returnDataToWorkSpace)="saveConfigNode($event)"
+      *ngSwitchCase="TEMPLATE_ORIGIN_NODE_TYPE.ORIGIN_NODE_2"
+      [propertiesInfo]="propertiesNodeSelected"></app-template-node-2>
+    <app-template-node-3 (returnDataToWorkSpace)="saveConfigNode($event)"
+                         *ngSwitchCase="TEMPLATE_ORIGIN_NODE_TYPE.ORIGIN_NODE_3"
+                         [propertiesInfo]="propertiesNodeSelected"></app-template-node-3>
+    <app-template-node-4 (returnDataToWorkSpace)="saveConfigNode($event)"
+                         *ngSwitchCase="TEMPLATE_ORIGIN_NODE_TYPE.ORIGIN_NODE_4"
+                         [propertiesInfo]="propertiesNodeSelected"></app-template-node-4>
+  </ng-container>
+</div>
+<app-modal (onClickCancel)="showModal = false" *ngIf="showModal" [nodesChart]="nodeFlowChartInfo"></app-modal>

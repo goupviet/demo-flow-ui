@@ -1,0 +1,19 @@
+<form (ngSubmit)="saveConfigNode()" [formGroup]="formConfigNode">
+  <div class="control-item">
+    <label>Select multi service</label>
+    <select *ngIf="dataService" formControlName="services" id="multiselect" multiple="multiple">
+      <option *ngFor="let service of dataService" value="{{service}}">{{service}}</option>
+    </select>
+  </div>
+  <div class="control-item">
+    <label>Select current service</label>
+    <select *ngIf="dataService" formControlName="current_service">
+      <option *ngFor="let service of dataService" value="{{service}}">{{service}}</option>
+    </select>
+  </div>
+  <div class="control-item">
+    <label>Is active</label>
+    <input formControlName="isActive" type="checkbox">
+  </div>
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>

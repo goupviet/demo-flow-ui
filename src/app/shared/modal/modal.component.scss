@@ -1,0 +1,104 @@
+.loadding {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6e707e;
+  //background: #000000;
+  .modal-container {
+    width: 80%;
+    height: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 25px;
+    border-radius: 5px;
+
+    span {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #42236a;
+    }
+
+    .btn-action {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        width: 45%;
+        background-image: linear-gradient(to bottom, #7b35bb, #5d2e86) !important;
+        color: #FF9800 !important;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 20000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .75);
+  padding: 30px;
+
+  > .modal-content-wrapper {
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    display: flow-root;
+
+    > .modal-body {
+      padding: 30px;
+      overflow-y: auto;
+
+      .body {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #42236a;
+        margin-bottom: 2rem;
+      }
+
+      .btn-action {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          width: 100%;
+          background-image: linear-gradient(to bottom, #7b35bb, #5d2e86) !important;
+          color: #FF9800 !important;
+          border: none;
+          outline: none;
+          height: 40px;
+        }
+
+        button:focus {
+          box-shadow: unset;
+        }
+
+        button:hover {
+          background-image: linear-gradient(to bottom, #622a95, #4b256c) !important;
+          color: #FF9800 !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<form (ngSubmit)="saveConfigNode()" [formGroup]="formConfigNode">
+  <div class="control-item">
+    <label>Server port</label>
+    <input class="form-control" formControlName="server_port" placeholder="Enter value text box ..."
+           type="text">
+  </div>
+  <div class="control-item">
+    <label>Server name</label>
+    <textarea class="form-control" formControlName="server_name"
+              placeholder="Enter value text area ..."></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
